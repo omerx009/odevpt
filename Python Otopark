@@ -1,0 +1,60 @@
+def calculate_parking_fee(vehicle_type, hours):
+    if vehicle_type == "o":
+        if hours <= 2:
+            return 5
+        elif hours <= 10:
+            return 5 + (hours - 2) * 1
+        else:
+            base_fee = 13  # İlk 10 saat ücreti
+            if hours <= 24:
+                return base_fee
+            else:
+                next_day_hours = hours - 24
+                if next_day_hours <= 2:
+                    return base_fee + 5
+                else:
+                    return base_fee + 5 + (next_day_hours - 2)
+
+    elif vehicle_type == "k":
+        if hours <= 2:
+            return 8
+        elif hours <= 8:
+            return 8 + (hours - 2) * 2
+        else:
+            base_fee = 20  # İlk 8 saat ücreti
+            if hours <= 24:
+                return base_fee
+            else:
+                next_day_hours = hours - 24
+                return base_fee + next_day_hours
+
+    elif vehicle_type == "i":
+        if hours <= 2:
+            return 12
+        elif hours <= 8:
+            return 12 + (hours - 2) * 3
+        else:
+            base_fee = 27  # İlk 8 saat ücreti
+            if hours <= 24:
+                return base_fee
+            else:
+                next_day_hours = hours - 24
+                return base_fee + next_day_hours
+
+    else:
+        return "Geçersiz araç türü"
+
+print("Python Otopark'a hoş geldiniz!\n")
+
+while True:
+    vehicle = input("Araç türünü girin (o - Otomobil, k - Kamyon, i - Iş makinası) veya çıkmak için 'q' basın: ")
+    if vehicle == 'q':
+        print("Tekrar bekleriz. Hoşça kalın!")
+        break
+
+    stay_hours = int(input("Kaç saat kalacak?: "))
+
+    total_fee = calculate_parking_fee(vehicle, stay_hours)
+    print(f"Araç {stay_hours} saat kalırsa toplam ücret: {total_fee} TL\n")
+
+print("Python Otopark'tan çıkılıyor...")

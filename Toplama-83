@@ -1,0 +1,31 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+
+        int toplam = 0;
+        int girilenSayi;
+
+        while (true)
+        {
+            Console.Write("Sayı girin: ");
+            string girilenMetin = Console.ReadLine();
+
+            if (int.TryParse(girilenMetin, out girilenSayi))
+            {
+                toplam += girilenSayi;
+            }
+           
+            if (girilenSayi == 83)
+            {
+
+                break;
+            }
+        }
+
+        Console.WriteLine($"Girilen sayıların toplamı: {toplam-83}");
+        Console.ReadLine();
+    }
+}

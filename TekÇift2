@@ -1,0 +1,36 @@
+using System;
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Birinci sayıyı girin: "); //Kulanıcıdan birinci sayıyı al.
+            Console.ForegroundColor = ConsoleColor.Green; //Biraz renk.
+        int sayı = Convert.ToInt32(Console.ReadLine());
+            Console.ResetColor();
+
+        Console.Write("İkinci sayıyı girin: "); //Kulanıcıdan ikinci sayıyı al.
+        Console.ForegroundColor = ConsoleColor.Green; 
+        int sayı2 = Convert.ToInt32(Console.ReadLine());
+        Console.ResetColor();
+
+        Console.Write("Tek sayıları mı Çift sayıları mı toplamak istersin: "); //Tek sayıları mı, Çift sayıları mı toplamak istediğini sor.
+            Console.ForegroundColor = ConsoleColor.Green;
+        string seçim = Console.ReadLine().ToUpper(); //Kullanıcı girişini büyük harfe çevir.
+            Console.ResetColor();
+        int toplam = 0; //Toplam değişkenini sıfırdan başlat.
+
+        for (int a = sayı; a <= sayı2; a++) //Bir değişken belirle ve bu değişkene birinci sayı ile ikinci sayı aralığını ver.
+        {
+            if (seçim == "TEK" && a % 2 != 0) //Değişken aralağınındaki tek sayıları ayır.
+            {
+                toplam += a; //Bu sayıları topla
+            }
+            else if (seçim == "ÇİFT" && a % 2 == 0) //Değişken aralağınındaki çift sayıları ayır.
+            {
+                toplam += a; //Bu sayıları topla
+            }          
+        }
+        Console.WriteLine($"{sayı} ile {sayı2} arasındaki {seçim} sayıların toplamı: {toplam}"); //Kullanıcının isteğini ekrana yazdır.
+        Console.ReadLine();
+    }
+}
